@@ -216,7 +216,7 @@ se_init:
 set_song:
 
   ldy #$00
-  STY tmp_stream_no  ; FIX THIS MESS !!!
+  STY tmp_stream_no
 
   LDA [song_header],y        ; song tempo: this number will be added to frame_counter each frame
   STA song_tempo
@@ -228,13 +228,13 @@ LoadStreams:                  ; loads all stream pointers
   LDA [song_header],y
   STA stream_ptr,x
   iny
-  inx     ; FIX THIS MESS !!!
+  inx
   LDA [song_header],y
   STA stream_ptr,x
   JSR reset_stream_position    ; reset each stream position
   iny
-  inx     ; FIX THIS MESS !!!
-  INC tmp_stream_no      ; FIX THIS MESS !!!
+  inx
+  INC tmp_stream_no
   cpx #8
  BNE LoadStreams
  ; ---
